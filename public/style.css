@@ -1,0 +1,13 @@
+:root {
+    --theme-pri: red;
+    --theme-sec: blue;
+    --theme-ter: yellow;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .5s ease;
+    scroll-behavior: smooth;
+}
