@@ -4,7 +4,7 @@
   "description": "This application is made by Geet Salame for practicing node and express techs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
   "author": "Geet Salame",
   "license": "ISC",
