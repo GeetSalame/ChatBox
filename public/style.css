@@ -62,39 +62,39 @@ h1 {
     background: rgb(236, 236, 236);
 }
 
-#omsgsec,
-#imsgsec {
-    max-width: 400px;
+.omsgsec,
+.imsgsec {
+    /* max-width: 400px; */
     margin: 10px;
+    max-width: 65%;
 }
 
-#omsgsec {
+.omsgsec {
     margin-left: auto;
-    max-width: 400px;
 }
 
-#omsgsec>h4 {
+.omsgsec>h4 {
     text-align: right;
 }
 
-#omsgsec>p,
-#imsgsec>p {
+.omsgsec>p,
+.imsgsec>p {
     border: 2px solid grey;
     border-radius: 5px;
     padding: 5px 20px;
     box-shadow: 5px 5px 5px rgb(234, 234, 234);
     background: white;
 }
-#omsgsec>p:hover,
-#imsgsec>p:hover {
+.omsgsec>p:hover,
+.imsgsec>p:hover {
     box-shadow: 5px 5px 5px silver;
 }
 
-#imsgsec {
+.imsgsec {
     margin-right: auto;
 }
 
-#imsgsec>h4 {
+.imsgsec>h4 {
     text-align: left;
 }
 

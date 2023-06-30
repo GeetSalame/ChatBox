@@ -16,3 +16,14 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 })
+
+//socket
+const io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+    console.log("New Socket Connection detected...");
+    socket.on('message', (msgObj) => {
+        // console.log(msgObj);
+        socket.broadcast.emit("message", msgObj);
+    })
+})
