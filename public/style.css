@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
-    --theme-pri: red;
-    --theme-sec: blue;
-    --theme-ter: yellow;
+    --theme-pri: #139DDB;
+    --theme-sec: #E4FEFF;
+    --bg1_dark: #00E6E6;
+    --bg1_light: #a5f8f8;
+
 }
 
 * {
@@ -43,6 +47,7 @@ h1 {
 
 #chatinterface {
     height: 75vh;
+    background: linear-gradient(45deg, var(--bg1_dark), var(--bg1_light));
 }
 
 #chatnamesec {
@@ -50,7 +55,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 5px 10px silver;
+    box-shadow: 0px 5px 10px rgba(192, 192, 192, 0.642);
 }
 
 #msgsec {
@@ -59,7 +64,13 @@ h1 {
     flex-direction: column;
     overflow-y: scroll;
     padding: 10px 0 10px;
-    background: rgb(236, 236, 236);
+    font-family: 'Poppins', sans-serif;
+}
+
+.entry {
+    color: #919191;
+    text-align: center;
+    font-size: .7rem;
 }
 
 .omsgsec,
@@ -73,21 +84,30 @@ h1 {
     margin-left: auto;
 }
 
+.omsgsec>h4,
+.imsgsec>h4 {
+    color: #596fff;
+    font-size: .7rem;
+}
+
 .omsgsec>h4 {
     text-align: right;
 }
 
 .omsgsec>p,
 .imsgsec>p {
-    border: 2px solid grey;
     border-radius: 5px;
     padding: 5px 20px;
-    box-shadow: 5px 5px 5px rgb(234, 234, 234);
-    background: white;
 }
-.omsgsec>p:hover,
-.imsgsec>p:hover {
-    box-shadow: 5px 5px 5px silver;
+
+.imsgsec>p {
+    color: white;
+    background: var(--theme-pri);
+}
+
+.omsgsec>p {
+    color: black;
+    background: var(--theme-sec);
 }
 
 .imsgsec {
