@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBox</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Welcome to <span>ChatBox</span></h1>
+    <div id="maincontainer">
+        <div id="chatdetailsec">
+            <h2>GroupName <button class="btn" style="border: none;" onclick="editGrpName()"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/1827/1827951.png" alt="edit"></button></h2>
+            <div id="members">
+                <h3>Members &nbsp;<button class="btn" style="border: none;" onclick="refreshMemberList()"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/126/126502.png" alt="edit"></button></h3>
+                <ul id="memberlist">
+                    <!-- <li>name 1</li>
+                    <li>name 2</li>
+                    <li>name 3</li> -->
+                </ul>
+            </div>
+        </div>
+        <div id="chatinterface">
+            <div id="chatnamesec">
+                <h2>GroupName</h2>
+            </div>
+            <div id="msgsec">
+                <!-- <div class="entry">
+                    <p>Geet joined</p>
+                </div> -->
+                <!-- <div id="omsgsec">
+                    <h4>User1</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem placeat velit sint, dignissimos
+                        debitis, eum</p>
+                </div>
+                <div id="imsgsec">
+                    <h4>User2</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem placeat velit sint, dignissimos
+                        debitis, eum</p>
+                </div> -->
+            </div>
+            <div id="typesec">
+                <textarea name="" id="typemsg" cols="30" rows="2" placeholder="Type your message..."></textarea>
+                <!-- <img class="icon" src="./img/sendMsg.png" alt=""> -->
+                <button class="btn" onclick="sendClicked()">Send</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+
+</html>

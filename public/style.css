@@ -207,3 +207,39 @@ ul {
     color: white;
     background: var(--theme-pri);
 }
+
+
+
+
+
+/* HomePage */
+nav{
+    border: 2px solid red;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+}
+nav>*{
+    border: 2px solid red;
+}
+nav>h1{
+    border: 2px solid red;
+}
+nav>ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+nav>ul>li{
+    margin: 0px 100px;
+}
+nav>ul>li>button{
+    background: none;
+    border: none;
+}
+
+#homecontainer{
+    width: 100%;
+    height: 100%;
+}
