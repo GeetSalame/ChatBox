@@ -1,15 +1,4 @@
-var usersData = [
-    {
-        userId: "1",
-        roomId: "",
-        userName: ""
-    },
-    {
-        userId: "2",
-        roomId: "",
-        userName: ""
-    }
-];
+var usersData = [];
 
 function addUser(userObj) {
     usersData.push(userObj);
@@ -31,4 +20,14 @@ const getUserName = (id) => {
     return usersData[index].userName;
 }
 
-module.exports = { usersData, addUser, removeUser, getRoomId, getUserName };
+const getAllUsers = (id) => {
+    let allUsers = [];
+    usersData.map(user => {
+        if(user.roomId === id){
+            allUsers.push(user.userName);
+        }
+    });
+    return allUsers;
+}
+
+module.exports = { usersData, addUser, removeUser, getRoomId, getUserName, getAllUsers };

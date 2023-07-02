@@ -18,40 +18,72 @@
 
 body {
     border: 2px solid red;
+    font-family: 'Poppins', sans-serif;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    /* max-height: 100vh; */
 }
 
 #maincontainer {
     border: 2px solid red;
     display: flex;
-    flex-direction: column;
-    height: 80vh;
-    width: 50vw;
+    height: 90vh;
+    width: 100vw;
 }
 
-/* #maincontainer>* {
-    border: 2px solid red;
+.icon {
+    /* border: 2px solid red; */
+    height: 20px;
+    width: 20px;
+    margin: 5px;
 }
-
-#chatinterface>* {
-    border: 2px solid blue;
-} */
 
 h1 {
     height: 5vh;
     text-align: center;
 }
 
+#chatdetailsec {
+    width: 20vw;
+    background: white;
+    border: 2px solid red;
+}
+
+#chatdetailsec>h2 {
+    width: 20vw;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chatdetailsec>h2 {
+    width: 20vw;
+    background: white
+}
+
+#members {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
 #chatinterface {
-    height: 75vh;
+    width: 80vw;
     background: linear-gradient(45deg, var(--bg1_dark), var(--bg1_light));
 }
 
 #chatnamesec {
-    height: 5vh;
+    height: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +91,7 @@ h1 {
 }
 
 #msgsec {
-    height: 65vh;
+    height: 90%;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -101,6 +133,7 @@ h1 {
     display: flex;
     flex-direction: column;
 }
+
 .omsgsec>.msg>span,
 .imsgsec>.msg>span {
     margin-left: auto;
@@ -127,13 +160,51 @@ h1 {
 }
 
 #typesec {
-    height: 5vh;
+    /* border: 2px solid red; */
+    display: flex;
+    padding: 0 20px;
 }
 
 #typesec>textarea {
-    width: 100%;
-    height: 5vh;
+    height: 40px;
+    max-height: 100px;
+    width: 95%;
     padding: 5px 10px;
-    /* border: none; */
-    box-shadow: 0px 0px 10px silver;
+    margin: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#typesec>button {
+    margin: auto;
+    width: 10%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#typesec>button>span>img {
+    height: 12px;
+    width: auto;
+}
+#typesec>button>span>img:hover {
+    filter: invert();
+}
+#typesec>button {
+    height: 40px;
+}
+
+
+.btn {
+    height: auto;
+    width: auto;
+    background: white;
+    color: var(--theme-pri);
+    border: 2px solid var(--theme-pri);
+    border-color: red;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover {
+    color: white;
+    background: var(--theme-pri);
 }

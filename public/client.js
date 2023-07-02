@@ -1,6 +1,7 @@
 const socket = io();
 
 let username;
+let memberlist = document.getElementById("memberlist");
 let msgsec = document.getElementById("msgsec");
 let typemsg = document.getElementById("typemsg");
 let roomId;
@@ -13,21 +14,50 @@ do {
     username = prompt("Enter Username");
 } while (!username);
 
+//connecting to new room
 socket.on('connect', () => {
     socket.emit('newRoom', roomId);
 })
 
+
+function refreshMemberList() {
+    socket.emit("members", roomId);
+    //display group members
+    socket.on("members", (memberObj) => {
+        displayMembers(memberObj);
+    })
+}
+
 socket.emit("newUser", username, roomId);
 
 typemsg.addEventListener('keyup', (e) => {
-    if (e.key === "Enter") {
-        sendMessage(e.target.value);
+    if (typemsg.value === '\n') {
+        alert("You have not entered any message")
+        typemsg.value = '';
+    }
+    else {
+        if (e.key === "Enter") {
+            sendMessage(e.target.value);
+            console.log("This is msg :", e.target);
+        }
     }
 })
+function sendClicked() {
+    let msg = typemsg.value;
+    if (typemsg.value === '\n') {
+        alert("You have not entered any message")
+        typemsg.value = '';
+    }
+    else { sendMessage(msg); }
+}
 
 function returnTime(date) {
     var hour = date.getHours();
     var min = date.getMinutes();
+    var checkHour = hour;
+    var checkMin = min;
+    if (checkHour < 10) { hour = '0' + checkHour; }
+    if (checkMin < 10) { min = '0' + checkMin; }
     var strTime = `${hour}:${min}`
     return strTime;
 }
@@ -62,6 +92,24 @@ function appendMsg(msgObj, type) {
     mainDiv.innerHTML = markup;
     msgsec.appendChild(mainDiv);
     scrollToBottom();
+}
+
+function displayMembers(memberObj) {
+    // let mainDiv = document.createElement('LI');
+    // mainDiv.classList.add(`user_${username}`);
+
+    let markup = '';
+    memberObj.map(member => {
+        markup = markup.concat(`<li>${member}</li>`);
+    })
+    console.log(",members : ", markup)
+    // markup = `
+    // <li>${username}</li>
+    // `;
+
+    // mainDiv.innerHTML = markup;
+    // memberlist.appendChild(markup);
+    memberlist.innerHTML = markup;
 }
 
 function appendUsername(username) {
