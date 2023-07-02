@@ -29,7 +29,7 @@ io.sockets.on('connection', (socket) => {
     // join new room
     socket.on('newRoom', (roomId) => {
         socket.join(roomId);
-        socket.to(roomId).emit("members", getAllUsers(roomId));
+        io.to(socket.id).emit("members", getAllUsers(roomId));
     })
     
     // listening to "message" signal name
@@ -39,7 +39,7 @@ io.sockets.on('connection', (socket) => {
     })
 
     socket.on('members', (roomId) => {
-        socket.to(roomId).emit("members", getAllUsers(roomId));
+        io.to(socket.id).emit("members", getAllUsers(roomId));
     })
     
     socket.on('newUser', (username, roomid) => {

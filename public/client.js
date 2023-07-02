@@ -19,6 +19,9 @@ socket.on('connect', () => {
     socket.emit('newRoom', roomId);
 })
 
+socket.on("members", (memberObj) => {
+    displayMembers(memberObj);
+})
 
 function refreshMemberList() {
     socket.emit("members", roomId);
@@ -31,7 +34,7 @@ function refreshMemberList() {
 socket.emit("newUser", username, roomId);
 
 typemsg.addEventListener('keyup', (e) => {
-    if (typemsg.value === '\n') {
+    if (typemsg.value === '\n' || typemsg.value === '') {
         alert("You have not entered any message")
         typemsg.value = '';
     }
@@ -44,7 +47,7 @@ typemsg.addEventListener('keyup', (e) => {
 })
 function sendClicked() {
     let msg = typemsg.value;
-    if (typemsg.value === '\n') {
+    if (typemsg.value === '\n' || typemsg.value === '') {
         alert("You have not entered any message")
         typemsg.value = '';
     }
