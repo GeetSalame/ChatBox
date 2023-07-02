@@ -3,6 +3,9 @@ const path = require('path');
 const app = express();
 const http = require('http').createServer(app);
 
+const { usersData, addUser, removeUser, getRoomId, getUserName } = require('./userData/usersData');
+
+
 const PORT = process.env.PORT || 3000;
 
 http.listen(PORT, () => {
@@ -34,12 +37,18 @@ io.sockets.on('connection', (socket) => {
         socket.to(msgObj.roomId).emit("message", msgObj);
     })
 
-    socket.on('newUser', (username, roomId) => {
-        socket.to(roomId).emit("newUser", username);
+    socket.on('newUser', (username, roomid) => {
+        addUser({ userId: socket.id, roomId: roomid, userName: username });
+        console.log(usersData);
+        socket.to(roomid).emit("newUser", username);
     })
 
-    socket.on('disconnect', ({username, roomId}) => {
+    socket.on('disconnect', () => {
+        const username = getUserName(socket.id);
+        const roomId = getRoomId(socket.id);
         socket.to(roomId).emit("userLeft", username);
-        console.log("userleft msg on server :", socket.id, username, roomId);
+        removeUser(socket.id);
+        console.log("userleft msg on server :", socket.id);
+        console.log(usersData);
     })
 })

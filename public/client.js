@@ -25,7 +25,7 @@ typemsg.addEventListener('keyup', (e) => {
     }
 })
 
-function returnTime(date){
+function returnTime(date) {
     var hour = date.getHours();
     var min = date.getMinutes();
     var strTime = `${hour}:${min}`
@@ -109,7 +109,7 @@ socket.on("userLeft", (username) => {
 //add that you are leaving
 socket.on('disconnect', () => {
     appendUserLeft(username);
-    socket.emit('disconnect', {username, roomId});
+    socket.emit('disconnect', { username, roomId });
 })
 
 function scrollToBottom() {
