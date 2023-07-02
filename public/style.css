@@ -32,13 +32,13 @@ body {
     width: 50vw;
 }
 
-#maincontainer>* {
-    /* border: 2px solid red; */
+/* #maincontainer>* {
+    border: 2px solid red;
 }
 
 #chatinterface>* {
-    /* border: 2px solid blue; */
-}
+    border: 2px solid blue;
+} */
 
 h1 {
     height: 5vh;
@@ -94,18 +94,26 @@ h1 {
     text-align: right;
 }
 
-.omsgsec>p,
-.imsgsec>p {
+.omsgsec>.msg,
+.imsgsec>.msg {
     border-radius: 5px;
     padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.omsgsec>.msg>span,
+.imsgsec>.msg>span {
+    margin-left: auto;
+    font-size: .6rem;
+    opacity: .6;
 }
 
-.imsgsec>p {
+.imsgsec>.msg {
     color: white;
     background: var(--theme-pri);
 }
 
-.omsgsec>p {
+.omsgsec>.msg {
     color: black;
     background: var(--theme-sec);
 }

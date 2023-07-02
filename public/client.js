@@ -1,4 +1,5 @@
 const socket = io();
+
 let username;
 let msgsec = document.getElementById("msgsec");
 let typemsg = document.getElementById("typemsg");
@@ -24,17 +25,25 @@ typemsg.addEventListener('keyup', (e) => {
     }
 })
 
+function returnTime(date){
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var strTime = `${hour}:${min}`
+    return strTime;
+}
+
 function sendMessage(msg) {
     let msgObj = {
+        roomId: roomId,
         name: username,
         message: msg,
-        roomId: roomId
-
+        time: returnTime(new Date)
     }
 
     appendMsg(msgObj, "omsgsec");
     socket.emit('message', msgObj);
     typemsg.value = '';
+    typemsg.focus();
 }
 
 function appendMsg(msgObj, type) {
@@ -44,7 +53,10 @@ function appendMsg(msgObj, type) {
 
     let markup = `
     <h4>${msgObj.name}</h4>
+    <div class="msg">
     <p>${msgObj.message}</p>
+    <span>${msgObj.time}</span>
+    </div>
     `;
 
     mainDiv.innerHTML = markup;
@@ -70,7 +82,7 @@ function appendUserLeft(username) {
     mainDiv.classList.add("entry");
 
     let markup = `
-    <p>${username} left</p>
+    <p>${username} disconnected</p>
     `;
 
     mainDiv.innerHTML = markup;
@@ -82,16 +94,22 @@ function appendUserLeft(username) {
 socket.on("message", (msgObj) => {
     appendMsg(msgObj, "imsgsec");
 })
+
+//add new user notification
 socket.on("newUser", (username) => {
     appendUsername(username);
 })
+
+//add user left notification
 socket.on("userLeft", (username) => {
     console.log("Userleft msg on client");
     appendUserLeft(username);
 })
 
-socket.on('disconnect', (username) => {
-    socket.emit('disconnect', username, roomId);
+//add that you are leaving
+socket.on('disconnect', () => {
+    appendUserLeft(username);
+    socket.emit('disconnect', {username, roomId});
 })
 
 function scrollToBottom() {

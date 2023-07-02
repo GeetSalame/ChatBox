@@ -38,8 +38,8 @@ io.sockets.on('connection', (socket) => {
         socket.to(roomId).emit("newUser", username);
     })
 
-    socket.on('disconnect', (username, roomId) => {
+    socket.on('disconnect', ({username, roomId}) => {
         socket.to(roomId).emit("userLeft", username);
-        console.log("userleft msg on server :", username);
+        console.log("userleft msg on server :", socket.id, username, roomId);
     })
 })
