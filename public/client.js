@@ -2,13 +2,21 @@ const socket = io();
 let username;
 let msgsec = document.getElementById("msgsec");
 let typemsg = document.getElementById("typemsg");
+let roomId;
 
 
+do {
+    roomId = prompt("Enter Room Id");
+} while (!roomId);
 do {
     username = prompt("Enter Username");
 } while (!username);
 
-socket.emit("newUser", username);
+socket.on('connect', () => {
+    socket.emit('newRoom', roomId);
+})
+
+socket.emit("newUser", username, roomId);
 
 typemsg.addEventListener('keyup', (e) => {
     if (e.key === "Enter") {
@@ -19,7 +27,9 @@ typemsg.addEventListener('keyup', (e) => {
 function sendMessage(msg) {
     let msgObj = {
         name: username,
-        message: msg
+        message: msg,
+        roomId: roomId
+
     }
 
     appendMsg(msgObj, "omsgsec");
@@ -81,7 +91,7 @@ socket.on("userLeft", (username) => {
 })
 
 socket.on('disconnect', (username) => {
-    socket.emit('disconnect', username);
+    socket.emit('disconnect', username, roomId);
 })
 
 function scrollToBottom() {
