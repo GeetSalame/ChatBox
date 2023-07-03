@@ -4,15 +4,22 @@ let username;
 let memberlist = document.getElementById("memberlist");
 let msgsec = document.getElementById("msgsec");
 let typemsg = document.getElementById("typemsg");
+let grpname = document.getElementById("grpname");
 let roomId;
 
 
 do {
     roomId = prompt("Enter Room Id");
+    if (roomId === null) {
+        location.href = '/';
+        break;
+    }
 } while (!roomId);
-do {
-    username = prompt("Enter Username");
-} while (!username);
+if (roomId !== null) {
+    do {
+        username = prompt("Enter Username");
+    } while (!username);
+}
 
 //connecting to new room
 socket.on('connect', () => {
@@ -21,7 +28,17 @@ socket.on('connect', () => {
 
 socket.on("members", (memberObj) => {
     displayMembers(memberObj);
+    appendGrpName();
 })
+
+function appendGrpName() {
+    let mainDiv = document.createElement('SPAN');
+
+    let markup = `Room : ${roomId}`;
+    mainDiv.innerHTML = markup;
+    grpname.replaceChild(mainDiv, grpname.childNodes[0]);
+}
+
 
 function refreshMemberList() {
     socket.emit("members", roomId);
