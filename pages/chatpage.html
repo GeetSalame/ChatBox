@@ -11,11 +11,10 @@
 </head>
 
 <body>
-    <h1>Welcome to <span>ChatBox</span></h1>
     <div id="maincontainer">
         <div id="chatdetailsec">
-            <h2>GroupName <button class="btn" style="border: none;" onclick="editGrpName()"><img class="icon"
-                        src="https://cdn-icons-png.flaticon.com/512/1827/1827951.png" alt="edit"></button></h2>
+            <h2 class="brandName">Chat<span>Box</span></h2>
+            <!-- <h2>GroupName <button class="btn" style="border: none;" onclick="editGrpName()"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/1827/1827951.png" alt="edit"></button></h2> -->
             <div id="members">
                 <h3>Members &nbsp;<button class="btn" style="border: none;" onclick="refreshMemberList()"><img
                             class="icon" src="https://cdn-icons-png.flaticon.com/512/126/126502.png"
@@ -32,7 +31,7 @@
         </div>
         <div id="chatinterface">
             <div id="chatnamesec">
-                <h2>GroupName</h2>
+                <h2 id="grpname">Room : </h2>
             </div>
             <div id="msgsec">
                 <!-- <div class="entry">

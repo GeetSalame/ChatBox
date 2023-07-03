@@ -30,7 +30,7 @@ body {
 #maincontainer {
     /* border: 2px solid red; */
     display: flex;
-    height: 90vh;
+    height: 100%;
     width: 100vw;
 }
 
@@ -177,6 +177,7 @@ ul {
     margin: 5px 10px;
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
+    outline: none;
 }
 
 #typesec>button {
