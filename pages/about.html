@@ -9,16 +9,22 @@
 </head>
 
 <body>
-    <nav>
-        <h1 id="brandName">ChatBox</h1>
-        <ul>
-            <li><button onclick="location.href='/'">Home</button></li>
-            <li><button onclick="location.href='/chat'">Chat</button></li>
-            <li><button onclick="location.href='/about'">About</button></li>
-        </ul>
-    </nav>
-    <h1>Welcome to <span>ChatBox</span></h1>
-    <h1>This is About Page</h1>
+    <div id="aboutcontainer">
+        <nav>
+            <!-- <h1 id="brandName"><span>Chat</span>Box</h1> -->
+            <h1 class="brandName">Chat<span>Box</span></h1>
+            <ul>
+                <li><button onclick="location.href='/'">Home</button></li>
+                <li><button onclick="location.href='/chat'">Chat</button></li>
+                <li><button onclick="location.href='/about'">About</button></li>
+            </ul>
+            <button class="btn">Button</button>
+        </nav>
+        <div id="aboutbody">
+            <h1>Welcome to <span>ChatBox</span></h1>
+            <h1>This is About Page</h1>
+        </div>
+    </div>
 </body>
 
 </html>

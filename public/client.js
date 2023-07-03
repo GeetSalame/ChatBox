@@ -9,10 +9,16 @@ let roomId;
 
 do {
     roomId = prompt("Enter Room Id");
+    if (roomId === null) {
+        location.href = '/';
+        break;
+    }
 } while (!roomId);
-do {
-    username = prompt("Enter Username");
-} while (!username);
+if (roomId !== null) {
+    do {
+        username = prompt("Enter Username");
+    } while (!username);
+}
 
 //connecting to new room
 socket.on('connect', () => {
