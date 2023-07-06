@@ -11,9 +11,8 @@
 </head>
 
 <body>
-    <div id="homecontainer">
+    <div id="joincontainer">
         <nav>
-            <!-- <h1 id="brandName"><span>Chat</span>Box</h1> -->
             <h1 class="brandName">Chat<span>Box</span></h1>
             <ul>
                 <li><button onclick="location.href='/'">Home</button></li>
@@ -22,19 +21,20 @@
             </ul>
             <button class="btn" onclick="location.href='/about#footersec'">Let's Connect</button>
         </nav>
-        <div id="homebody">
+        <div id="createbody">
+            <h2>Create Room</h2>
             <div>
-                <h1 class="brandName">Welcome to Chat<span>Box</span></h1>
-                <p>"Instant Chat, Connect and Explore with Ease!"</p>
-                <button class="btn" onclick="location.href='/create'">Create New Chat</button>
-                <button class="btn" onclick="location.href='/join'">Join Chat</button>
-            </div>
-            <div>
-                <img src="./img/teenager-girl-chatting.png"
-                    alt="Chatting">
+                <input id="assignRoomId" type="text" class="inp" placeholder="Room ID" disabled>
+                <input id="getUserName" type="text" class="inp" placeholder="Enter Username">
+                <input id="getGrpName" type="text" class="inp" placeholder="Enter Group Name">
+                <button class="btn" onclick="createRoom()">Create Room</button>
             </div>
         </div>
     </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
 </body>
 
 </html>

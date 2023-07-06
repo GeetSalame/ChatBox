@@ -25,13 +25,18 @@
                     <li>name 3</li> -->
                 </ul>
             </div>
-            <button class="btn" style="margin: auto auto 0; display: flex; align-items: center;" onclick="location.href='/'">
+            <button class="btn" style="margin: auto auto 0; display: flex; align-items: center;"
+                onclick="location.href='/'">
                 <p>Leave Room</p> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/320/320140.png" alt="">
             </button>
         </div>
         <div id="chatinterface">
             <div id="chatnamesec">
-                <h2 id="grpname">Room : </h2>
+                <h2 style="margin: auto;" id="grpname">Room : </h2>
+                <button class="btn" onclick="{document.getElementById('linksec').style.display = 'flex';}"
+                    style="border: none; margin-right: 30px;">
+                    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1358/1358023.png" alt="share">
+                </button>
             </div>
             <div id="msgsec">
                 <!-- <div class="entry">
@@ -52,6 +57,18 @@
                 <textarea name="" id="typemsg" cols="30" rows="2" placeholder="Type your message..."></textarea>
                 <!-- <img class="icon" src="./img/sendMsg.png" alt=""> -->
                 <button class="btn" onclick="sendClicked()">Send</button>
+            </div>
+        </div>
+        <div id="linksec">
+            <button class="btn" onclick="{document.getElementById('linksec').style.display = 'none'; document.getElementById('copied').style.display = 'none'; document.getElementById('copy').style.display = 'block';}">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png" alt="cross">
+            </button>
+            <div>
+                <textarea name="" id="roomlink" cols="10" rows="1" style="resize: none; border: none; font-size: 25px; max-height: min-content; width: 500px;"></textarea>
+                <button class="btn" style="border: none;" onclick="copyLink()">
+                    <img id="copy" class="icon" src="https://cdn-icons-png.flaticon.com/512/1621/1621635.png" alt="copy">
+                    <img id="copied" class="icon" src="https://cdn-icons-png.flaticon.com/512/10735/10735228.png" alt="copied" style="display: none;">
+                </button>
             </div>
         </div>
     </div>

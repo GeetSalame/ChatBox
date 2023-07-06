@@ -1,25 +1,30 @@
 const socket = io();
 
-let username;
+let username = document.getElementById("getUserName").value;
 let memberlist = document.getElementById("memberlist");
 let msgsec = document.getElementById("msgsec");
 let typemsg = document.getElementById("typemsg");
 let grpname = document.getElementById("grpname");
-let roomId;
 
+let roomId = Math.floor(100000 + Math.random() * 900000);
+document.getElementById("assignRoomId").value = "Room ID : " + roomId;
 
-do {
-    roomId = prompt("Enter Room Id");
-    if (roomId === null) {
-        location.href = '/';
-        break;
-    }
-} while (!roomId);
-if (roomId !== null) {
-    do {
-        username = prompt("Enter Username");
-    } while (!username);
+function createRoom(){
+    location.href = `/chat?roomID=${roomId}`;
 }
+
+// do {
+//     roomId = prompt("Enter Room Id");
+//     if (roomId === null) {
+//         location.href = '/';
+//         break;
+//     }
+// } while (!roomId);
+// if (roomId !== null) {
+//     do {
+//         username = prompt("Enter Username");
+//     } while (!username);
+// }
 
 //connecting to new room
 socket.on('connect', () => {
@@ -182,4 +187,25 @@ socket.on('disconnect', () => {
 
 function scrollToBottom() {
     msgsec.scrollTop = msgsec.scrollHeight;
+}
+
+const linksec = document.getElementById("roomlink");
+linksec.value = window.location.href;
+
+function copyLink() {
+    // Get the text field
+    var copyText = document.getElementById("roomlink");
+
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+
+    // Alert the copied text
+    // alert("Linked copied : " + copyText.value);
+    document.getElementById("copy").style.display = "none";
+    document.getElementById("copied").style.display = "block";
+
 }

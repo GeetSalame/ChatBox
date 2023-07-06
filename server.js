@@ -19,6 +19,12 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 })
+app.get('/create', (req, res) => {
+    res.sendFile(path.join(__dirname, '/pages/create.html'));
+})
+app.get('/join', (req, res) => {
+    res.sendFile(path.join(__dirname, '/pages/join.html'));
+})
 app.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '/pages/chatpage.html'));
 })

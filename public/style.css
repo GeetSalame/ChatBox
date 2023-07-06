@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all .5s ease;
+    transition: all .1s ease;
     scroll-behavior: smooth;
 }
 
@@ -27,11 +27,13 @@ body {
     /* max-height: 100vh; */
 }
 
-#maincontainer {
+#maincontainer, #joincontainer {
     /* border: 2px solid red; */
     display: flex;
     height: 100%;
     width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .icon {
@@ -90,7 +92,7 @@ ul {
 #chatnamesec {
     height: 5%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     box-shadow: 0px 5px 10px rgba(192, 192, 192, 0.642);
 }
@@ -261,12 +263,14 @@ nav>ul>li>button:hover {
 }
 
 #homebody,
-#aboutbody {
-    margin-top: 60px;
+#aboutbody,
+#joinbody,
+#createbody {
+    /* margin-top: 60px; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background: linear-gradient(145deg, var(--theme-sec), white);
 }
@@ -305,6 +309,8 @@ nav>ul>li>button:hover {
 #aboutcontainer {
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #aboutbody {
@@ -370,4 +376,51 @@ nav>ul>li>button:hover {
 .footer a {
     color: var(--theme-pri);
     text-decoration: none;
+}
+
+#linksec{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#linksec>button{
+    position: fixed;
+    top: 10%;
+    right: 10%;
+}
+
+#linksec>div{
+    background: white;
+    padding: 10px 20px;
+    border: 5px;
+    display: flex;
+
+}
+
+
+
+
+
+
+
+/* Join Page */
+#createbody>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.inp{
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    width: 500px;
 }
