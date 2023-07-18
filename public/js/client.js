@@ -1,6 +1,7 @@
 const socket = io();
+localStorage.setItem("isCreateMode", false);
 
-let username;
+let username, grpName;
 let roomId;
 let memberlist = document.getElementById("memberlist");
 let grpname = document.getElementById("grpname");
@@ -9,31 +10,33 @@ let typemsg = document.getElementById("typemsg");
 
 const url = window.location.search;
 let params = new URLSearchParams(url);
-username = localStorage.getItem("uName");
-roomId = params.get('rID');
+
+if (!username) username = localStorage.getItem("uName");
+if (!grpName) grpName = localStorage.getItem("grpName");
+if (params.get('rID')) roomId = params.get('rID');
+
 console.log("1 : ", username, roomId);
 
-// do {
-//     roomId = prompt("Enter Room Id");
-//     if (roomId === null) {
-//         location.href = '/';
-//         break;
-//     }
-// } while (!roomId);
-// if (roomId !== null) {
-//     do {
-//         username = prompt("Enter Username");
-//     } while (!username);
-// }
 
 //connecting to new room
 socket.on('connect', () => {
     socket.emit('newRoom', roomId);
+    // if (params.get('rID')) roomId = params.get('rID');
+    // if (params.get('rID')) {
+    //     roomId = params.get('rID');
+    //     socket.emit('newRoom', roomId);
+    // } else {
+    //     socket.emit('getRoomID');
+    // }
 })
+
+// socket.on("getRoomID", (availableRoom) => {
+//     roomId = availableRoom;
+// })
 
 socket.on("members", (memberObj) => {
     displayMembers(memberObj);
-    appendGrpName();
+    appendGrpName(grpName);
 })
 
 socket.emit("newUser", username, roomId);

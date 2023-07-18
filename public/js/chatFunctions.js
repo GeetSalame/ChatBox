@@ -7,10 +7,10 @@ function displayMembers(memberObj) {
     memberlist.innerHTML = markup;
 }
 
-function appendGrpName() {
+function appendGrpName(grpName) {
     let mainDiv = document.createElement('SPAN');
 
-    let markup = `Room : ${roomId}`;
+    let markup = `${grpName}`;
     mainDiv.innerHTML = markup;
     grpname.replaceChild(mainDiv, grpname.childNodes[0]);
 }

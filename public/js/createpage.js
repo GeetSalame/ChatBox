@@ -1,15 +1,30 @@
 let CuserName = "admin";
 let CroomID = "0000";
-let CgrpName;
+let CgrpName = `ChatBox : ${CroomID}`;
+let roomIDsec = document.getElementById("roomIDsec");
+
+
+const socket = io();
+socket.on('connect', () => {
+    socket.emit("getRoomID");
+})
+socket.on("getRoomID", (roomId) => {
+    console.log("Client : ", roomId);
+    CroomID = roomId;
+    roomIDsec.value = `Room ID : ${CroomID}`;
+})
+
+socket.on('disconnect', () => {
+    socket.emit('seeuthen');
+})
 
 function createRoom() {
     CuserName = document.getElementById("getUserName").value;
     CgrpName = document.getElementById("getGrpName").value;
 
-    CroomID = Math.floor(Math.random()*10000);
-    // to check if the room ID is available
-
-    CgrpName = `ChatBox ${CroomID}`;
-    localStorage.setItem('uName', CuserName);
+    if(CuserName) localStorage.setItem('uName', CuserName);
+    else CuserName = 'Admin';
+    if(CgrpName) localStorage.setItem('grpName', CgrpName);
+    else CgrpName = `ChatBox : ${CroomID}`
     location.href = `/chat?rID=${CroomID}`;
 }
