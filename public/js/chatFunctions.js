@@ -1,40 +1,11 @@
-const socket = io();
+function displayMembers(memberObj) {
+    let markup = '';
+    memberObj.map(member => {
+        markup = markup.concat(`<li>${member}</li>`);
+    })
 
-let username = document.getElementById("getUserName").value;
-let memberlist = document.getElementById("memberlist");
-let msgsec = document.getElementById("msgsec");
-let typemsg = document.getElementById("typemsg");
-let grpname = document.getElementById("grpname");
-
-let roomId = Math.floor(100000 + Math.random() * 900000);
-document.getElementById("assignRoomId").value = "Room ID : " + roomId;
-
-function createRoom(){
-    location.href = `/chat?roomID=${roomId}`;
+    memberlist.innerHTML = markup;
 }
-
-// do {
-//     roomId = prompt("Enter Room Id");
-//     if (roomId === null) {
-//         location.href = '/';
-//         break;
-//     }
-// } while (!roomId);
-// if (roomId !== null) {
-//     do {
-//         username = prompt("Enter Username");
-//     } while (!username);
-// }
-
-//connecting to new room
-socket.on('connect', () => {
-    socket.emit('newRoom', roomId);
-})
-
-socket.on("members", (memberObj) => {
-    displayMembers(memberObj);
-    appendGrpName();
-})
 
 function appendGrpName() {
     let mainDiv = document.createElement('SPAN');
@@ -52,8 +23,6 @@ function refreshMemberList() {
         displayMembers(memberObj);
     })
 }
-
-socket.emit("newUser", username, roomId);
 
 typemsg.addEventListener('keyup', (e) => {
     if (typemsg.value === '\n' || typemsg.value === '') {
@@ -119,24 +88,6 @@ function appendMsg(msgObj, type) {
     scrollToBottom();
 }
 
-function displayMembers(memberObj) {
-    // let mainDiv = document.createElement('LI');
-    // mainDiv.classList.add(`user_${username}`);
-
-    let markup = '';
-    memberObj.map(member => {
-        markup = markup.concat(`<li>${member}</li>`);
-    })
-    console.log(",members : ", markup)
-    // markup = `
-    // <li>${username}</li>
-    // `;
-
-    // mainDiv.innerHTML = markup;
-    // memberlist.appendChild(markup);
-    memberlist.innerHTML = markup;
-}
-
 function appendUsername(username) {
     let mainDiv = document.createElement('div');
     mainDiv.classList.add("entry");
@@ -163,27 +114,6 @@ function appendUserLeft(username) {
     scrollToBottom();
 }
 
-// receive msg
-socket.on("message", (msgObj) => {
-    appendMsg(msgObj, "imsgsec");
-})
-
-//add new user notification
-socket.on("newUser", (username) => {
-    appendUsername(username);
-})
-
-//add user left notification
-socket.on("userLeft", (username) => {
-    console.log("Userleft msg on client");
-    appendUserLeft(username);
-})
-
-//add that you are leaving
-socket.on('disconnect', () => {
-    appendUserLeft(username);
-    socket.emit('disconnect', { username, roomId });
-})
 
 function scrollToBottom() {
     msgsec.scrollTop = msgsec.scrollHeight;

@@ -27,7 +27,8 @@ body {
     /* max-height: 100vh; */
 }
 
-#maincontainer, #joincontainer {
+#maincontainer,
+#joincontainer {
     /* border: 2px solid red; */
     display: flex;
     height: 100%;
@@ -378,7 +379,7 @@ nav>ul>li>button:hover {
     text-decoration: none;
 }
 
-#linksec{
+#linksec {
     position: fixed;
     top: 0;
     left: 0;
@@ -390,13 +391,13 @@ nav>ul>li>button:hover {
     align-items: center;
 }
 
-#linksec>button{
+#linksec>button {
     position: fixed;
     top: 10%;
     right: 10%;
 }
 
-#linksec>div{
+#linksec>div {
     background: white;
     padding: 10px 20px;
     border: 5px;
@@ -411,7 +412,8 @@ nav>ul>li>button:hover {
 
 
 /* Join Page */
-#createbody>div{
+#createbody>div,
+#joinbody>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -419,7 +421,7 @@ nav>ul>li>button:hover {
     gap: 20px;
 }
 
-.inp{
+.inp {
     font-family: 'Poppins', sans-serif;
     padding: 5px;
     width: 500px;
