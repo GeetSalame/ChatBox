@@ -11,9 +11,13 @@ let typemsg = document.getElementById("typemsg");
 const url = window.location.search;
 let params = new URLSearchParams(url);
 
-if (!username) username = localStorage.getItem("uName");
-if (!grpName) grpName = localStorage.getItem("grpName");
+if (!username && localStorage.getItem("uName")) username = localStorage.getItem("uName");
+else username = prompt("Enter Username");
+
 if (params.get('rID')) roomId = params.get('rID');
+
+if (!grpName && localStorage.getItem("grpName")) grpName = localStorage.getItem("grpName");
+else grpName = `ChatBox : ${roomId}`;
 
 console.log("1 : ", username, roomId);
 
@@ -21,14 +25,8 @@ console.log("1 : ", username, roomId);
 //connecting to new room
 socket.on('connect', () => {
     socket.emit('newRoom', roomId);
-    // if (params.get('rID')) roomId = params.get('rID');
-    // if (params.get('rID')) {
-    //     roomId = params.get('rID');
-    //     socket.emit('newRoom', roomId);
-    // } else {
-    //     socket.emit('getRoomID');
-    // }
 })
+
 
 // socket.on("getRoomID", (availableRoom) => {
 //     roomId = availableRoom;
@@ -39,7 +37,7 @@ socket.on("members", (memberObj) => {
     appendGrpName(grpName);
 })
 
-socket.emit("newUser", username, roomId);
+socket.emit("newUser", username, roomId, grpName);
 
 // receive msg
 socket.on("message", (msgObj) => {
@@ -60,5 +58,5 @@ socket.on("userLeft", (username) => {
 //add that you are leaving
 socket.on('disconnect', () => {
     appendUserLeft(username);
-    socket.emit('disconnect', { username, roomId });
+    // socket.emit('disconnect', { username, roomId });
 })

@@ -46,7 +46,8 @@ io.sockets.on('connection', (socket) => {
 
     socket.on("getRoomID", () => {
         do {
-            availableRoom = Math.floor(Math.random() * 10000);
+            // availableRoom = Math.floor(Math.random() * 10000);
+            availableRoom = Math.floor(1000 + Math.random() * 9000);
         } while (!isRoomAvailable(availableRoom));
         console.log("Server : ", availableRoom);
         io.to(socket.id).emit("getRoomID", availableRoom);
@@ -69,8 +70,8 @@ io.sockets.on('connection', (socket) => {
         io.to(socket.id).emit("members", getAllUsers(roomId));
     })
 
-    socket.on('newUser', (username, roomid) => {
-        addUser({ userId: socket.id, roomId: roomid, userName: username });
+    socket.on('newUser', (username, roomid, gname) => {
+        addUser({ userId: socket.id, roomId: roomid, userName: username, grpName : gname });
         console.log(usersData);
         socket.to(roomid).emit("newUser", username);
         socket.to(roomid).emit("members", getAllUsers(roomid));

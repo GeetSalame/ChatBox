@@ -311,7 +311,7 @@ nav>ul>li>button:hover {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 #aboutbody {
@@ -411,7 +411,7 @@ nav>ul>li>button:hover {
 
 
 
-/* Join Page */
+/* Join and CreatePage */
 #createbody>div,
 #joinbody>div {
     display: flex;
@@ -425,4 +425,15 @@ nav>ul>li>button:hover {
     font-family: 'Poppins', sans-serif;
     padding: 5px;
     width: 500px;
+}
+
+#createbody>div>a,
+#joinbody>div>a{
+    color: silver;
+    font-size: small;
+}
+
+#createbody>div>a:hover,
+#joinbody>div>a:hover{
+    color: var(--theme-pri);
 }

@@ -25,6 +25,6 @@ function joinRoom(){
 
     if(RoomExistance) location.href = `/chat?rID=${JroomID}`;
     else {
-        alert("Room doesnt exists");
+        alert("Room doesn't exists");
     }
 }
