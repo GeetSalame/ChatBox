@@ -1,40 +1,17 @@
-const socket = io();
+function displayMembers(memberObj) {
+    document.getElementById("displayRoomID").innerHTML = `Room ID : <span style="color: var(--theme-pri);">${roomId}</span>`;
+    let markup = '';
+    memberObj.map(member => {
+        markup = markup.concat(`<li>${member}</li>`);
+    })
 
-let username;
-let memberlist = document.getElementById("memberlist");
-let msgsec = document.getElementById("msgsec");
-let typemsg = document.getElementById("typemsg");
-let grpname = document.getElementById("grpname");
-let roomId;
-
-
-do {
-    roomId = prompt("Enter Room Id");
-    if (roomId === null) {
-        location.href = '/';
-        break;
-    }
-} while (!roomId);
-if (roomId !== null) {
-    do {
-        username = prompt("Enter Username");
-    } while (!username);
+    memberlist.innerHTML = markup;
 }
 
-//connecting to new room
-socket.on('connect', () => {
-    socket.emit('newRoom', roomId);
-})
-
-socket.on("members", (memberObj) => {
-    displayMembers(memberObj);
-    appendGrpName();
-})
-
-function appendGrpName() {
+function appendGrpName(grpName) {
     let mainDiv = document.createElement('SPAN');
 
-    let markup = `Room : ${roomId}`;
+    let markup = `${grpName}`;
     mainDiv.innerHTML = markup;
     grpname.replaceChild(mainDiv, grpname.childNodes[0]);
 }
@@ -48,11 +25,9 @@ function refreshMemberList() {
     })
 }
 
-socket.emit("newUser", username, roomId);
-
 typemsg.addEventListener('keyup', (e) => {
     if (typemsg.value === '\n' || typemsg.value === '') {
-        alert("You have not entered any message")
+        console.log("You have not entered any message");
         typemsg.value = '';
     }
     else {
@@ -114,24 +89,6 @@ function appendMsg(msgObj, type) {
     scrollToBottom();
 }
 
-function displayMembers(memberObj) {
-    // let mainDiv = document.createElement('LI');
-    // mainDiv.classList.add(`user_${username}`);
-
-    let markup = '';
-    memberObj.map(member => {
-        markup = markup.concat(`<li>${member}</li>`);
-    })
-    console.log(",members : ", markup)
-    // markup = `
-    // <li>${username}</li>
-    // `;
-
-    // mainDiv.innerHTML = markup;
-    // memberlist.appendChild(markup);
-    memberlist.innerHTML = markup;
-}
-
 function appendUsername(username) {
     let mainDiv = document.createElement('div');
     mainDiv.classList.add("entry");
@@ -158,28 +115,28 @@ function appendUserLeft(username) {
     scrollToBottom();
 }
 
-// receive msg
-socket.on("message", (msgObj) => {
-    appendMsg(msgObj, "imsgsec");
-})
-
-//add new user notification
-socket.on("newUser", (username) => {
-    appendUsername(username);
-})
-
-//add user left notification
-socket.on("userLeft", (username) => {
-    console.log("Userleft msg on client");
-    appendUserLeft(username);
-})
-
-//add that you are leaving
-socket.on('disconnect', () => {
-    appendUserLeft(username);
-    socket.emit('disconnect', { username, roomId });
-})
 
 function scrollToBottom() {
     msgsec.scrollTop = msgsec.scrollHeight;
+}
+
+const linksec = document.getElementById("roomlink");
+linksec.value = window.location.href;
+
+function copyLink() {
+    // Get the text field
+    var copyText = document.getElementById("roomlink");
+
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+
+    // Alert the copied text
+    // alert("Linked copied : " + copyText.value);
+    document.getElementById("copy").style.display = "none";
+    document.getElementById("copied").style.display = "block";
+
 }

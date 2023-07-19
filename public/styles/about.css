@@ -1,0 +1,56 @@
+#aboutcontainer {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+#aboutbody {
+    /* margin-top: 60px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(145deg, var(--theme-sec), white);
+}
+
+#aboutbody {
+    flex-direction: column;
+    align-items: center;
+}
+
+#aboutbody>* {
+    width: 50%;
+}
+
+
+
+/*--------------- Responsiveness  -------------*/
+@media screen and (max-width : 700px) {
+    #aboutbody>* {
+        width: 60%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #aboutbody>div>p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width : 450px) {
+    #aboutbody>* {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    #aboutbody>div>p {
+        font-size: 0.7rem;
+    }
+}

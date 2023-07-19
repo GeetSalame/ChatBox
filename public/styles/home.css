@@ -1,0 +1,91 @@
+#homecontainer {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+}
+
+#homebody {
+    /* margin-top: 60px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(145deg, var(--theme-sec), white);
+}
+
+#homebody>:nth-child(1) {
+    /* border: 2px solid blue; */
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    -webkit-box-reflect: below 100px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+}
+
+#homebody>:nth-child(1)>button {
+    width: fit-content;
+    margin: 5px 0;
+}
+
+#homebody>:nth-child(1)>h1 {
+    font-size: 3rem;
+    /* margin-bottom: -10px; */
+}
+
+#homebody>div>img {
+    /* border: 2px solid blue; */
+    -webkit-box-reflect: below -150px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+}
+
+
+/*--------------- Responsiveness  -------------*/
+@media screen and (max-width : 1300px) {
+    #homebody {
+        padding: 7%;
+    }
+
+    #homebody>:nth-child(1)>h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width : 1100px) {
+    #homebody>div>img {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width : 900px) {
+    #homebody>div>img {
+        width: 300px;
+    }
+
+    #homebody>:nth-child(1)>h1 {
+        font-size: 2rem;
+    }
+
+    #homebody>:nth-child(1)>p,
+    #homebody>:nth-child(1)>button {
+        font-size: .7rem;
+    }
+
+    .btn {
+        padding: 4px 15px;
+    }
+}
+
+@media screen and (max-width : 750px) {
+    #homebody {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #homebody>:nth-child(1) {
+        align-items: center;
+        justify-content: start;
+    }
+}

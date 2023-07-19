@@ -8,15 +8,22 @@
     <link rel="icon" href="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564410-chat_81504.png"
         type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/chatpage.css">
 </head>
 
 <body>
     <div id="maincontainer">
         <div id="chatdetailsec">
+            <button class="btn" onclick="{document.getElementById('chatdetailsec').style.display = 'none';}" style="border: none; width: fit-content;
+                margin-right: auto;">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" alt="menu">
+            </button>
             <h2 class="brandName">Chat<span>Box</span></h2>
             <!-- <h2>GroupName <button class="btn" style="border: none;" onclick="editGrpName()"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/1827/1827951.png" alt="edit"></button></h2> -->
             <div id="members">
-                <h3>Members &nbsp;<button class="btn" style="border: none;" onclick="refreshMemberList()"><img
+                <h3 id="displayRoomID">Room ID : </h3>
+                <h3 style="display: flex; margin-top: 15px;">Members &nbsp;<button class="btn"
+                        style="border: none; padding: 0; transform: scale(0.7);" onclick="refreshMemberList()"><img
                             class="icon" src="https://cdn-icons-png.flaticon.com/512/126/126502.png"
                             alt="edit"></button></h3>
                 <ul id="memberlist">
@@ -25,15 +32,27 @@
                     <li>name 3</li> -->
                 </ul>
             </div>
-            <button class="btn" style="margin: auto auto 0; display: flex; align-items: center;" onclick="location.href='/'">
-                <p>Leave Room</p> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/320/320140.png" alt="">
+            <button class="btn"
+                style="margin: auto auto 0px; display: flex; justify-content: center; align-items: center;"
+                onclick="{document.getElementById('linksec').style.display = 'flex';}">
+                <p>Invite</p>
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1358/1358023.png" alt="share">
+            </button>
+            <button class="btn" style="margin: 20px auto; display: flex; align-items: center;"
+                onclick="location.href='/'">
+                <p>Leave Room</p> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/320/320140.png"
+                    alt="Leave">
             </button>
         </div>
         <div id="chatinterface">
             <div id="chatnamesec">
-                <h2 id="grpname">Room : </h2>
+                <h2 style="margin: auto;" id="grpname">Room : </h2>
+                <button class="btn" onclick="{document.getElementById('chatdetailsec').style.display = 'flex';}"
+                    style="border: none;">
+                    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="menu">
+                </button>
             </div>
-            <div id="msgsec">
+            <div id="msgsec" class="msgsec">
                 <!-- <div class="entry">
                     <p>Geet joined</p>
                 </div> -->
@@ -54,12 +73,29 @@
                 <button class="btn" onclick="sendClicked()">Send</button>
             </div>
         </div>
+        <div id="linksec">
+            <button class="btn"
+                onclick="{document.getElementById('linksec').style.display = 'none'; document.getElementById('copied').style.display = 'none'; document.getElementById('copy').style.display = 'block';}">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png" alt="cross">
+            </button>
+            <div>
+                <textarea name="" id="roomlink" cols="10" rows="1"
+                    style="resize: none; border: none; font-size: 1rem; max-height: max-content; min-width: -webkit-fill-available;"></textarea>
+                <button class="btn" style="border: none;" onclick="copyLink()">
+                    <img id="copy" class="icon" src="https://cdn-icons-png.flaticon.com/512/1621/1621635.png"
+                        alt="copy">
+                    <img id="copied" class="icon" src="https://cdn-icons-png.flaticon.com/512/10735/10735228.png"
+                        alt="copied" style="display: none;">
+                </button>
+            </div>
+        </div>
     </div>
 
 
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/client.js"></script>
+    <script src="/js/client.js"></script>
+    <script src="/js/chatFunctions.js"></script>
 </body>
 
 </html>

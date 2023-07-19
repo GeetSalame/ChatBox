@@ -9,11 +9,11 @@
     <title>ChatBox</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/create.css">
 </head>
 
 <body>
-    <div id="homecontainer">
+    <div id="createcontainer">
         <nav>
             <!-- <h1 id="brandName"><span>Chat</span>Box</h1> -->
             <h1 class="brandName">Chat<span>Box</span></h1>
@@ -31,7 +31,7 @@
         <div id="sidenav">
             <button class="btn" onclick="{document.getElementById('sidenav').style.display = 'none';}"
                 style="border: none;">
-                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" style="transform: rotate(180deg);" alt="arrow">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" style="transform: rotate(180deg);" alt="menu">
             </button>
             <ul>
                 <li><button onclick="location.href='/'">Home</button></li>
@@ -40,18 +40,20 @@
             </ul>
             <button class="btn" onclick="location.href='/about#footersec'">Let's Connect</button>
         </div>
-        <div id="homebody">
+        <div id="createbody">
+            <h2>Create Room</h2>
             <div>
-                <h1 class="brandName">Welcome to Chat<span>Box</span></h1>
-                <p>"Instant Chat, Connect and Explore with Ease!"</p>
-                <button class="btn" onclick="location.href='/create'">Create New Chat</button>
-                <button class="btn" onclick="location.href='/join'">Join Chat</button>
-            </div>
-            <div>
-                <img src="./img/teenager-girl-chatting.png" alt="Chatting">
+                <input id="roomIDsec" type="text" class="inp" placeholder="Room ID" disabled>
+                <input id="getUserName" type="text" class="inp" placeholder="Enter Username">
+                <input id="getGrpName" type="text" class="inp" placeholder="Enter Group Name">
+                <button class="btn" onclick="createRoom()">Create Room</button>
+                <a href="/join">Join already existed room</a>
             </div>
         </div>
     </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/createpage.js"></script>
 </body>
 
 </html>

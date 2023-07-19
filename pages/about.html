@@ -8,6 +8,9 @@
     <link rel="icon" href="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564410-chat_81504.png"
         type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/footer.css">
 </head>
 
 <body>
@@ -17,15 +20,31 @@
             <h1 class="brandName">Chat<span>Box</span></h1>
             <ul>
                 <li><button onclick="location.href='/'">Home</button></li>
-                <li><button onclick="location.href='/chat'">Chat</button></li>
+                <li><button onclick="location.href='/join'">Chat</button></li>
                 <li><button onclick="location.href='/about'">About</button></li>
             </ul>
             <button class="btn" onclick="location.href='/about#footersec'">Let's Connect</button>
+            <button id="menuBtn" class="btn" onclick="{document.getElementById('sidenav').style.display = 'flex';}"
+                style="border: none;">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="menu">
+            </button>
         </nav>
+        <div id="sidenav">
+            <button class="btn" onclick="{document.getElementById('sidenav').style.display = 'none';}"
+                style="border: none;">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" style="transform: rotate(180deg);" alt="menu">
+            </button>
+            <ul>
+                <li><button onclick="location.href='/'">Home</button></li>
+                <li><button onclick="location.href='/join'">Chat</button></li>
+                <li><button onclick="location.href='/about'">About</button></li>
+            </ul>
+            <button class="btn" onclick="location.href='/about#footersec'">Let's Connect</button>
+        </div>
         <div id="aboutbody">
             <div>
                 <h1 style="margin: 10px 20px;">About</h1>
-                <p style="text-align: center;">This is an instant chat application made by <a style="text-decoration: none; font-weight: bold ;" href="https://www.linkedin.com/in/geet-salame-57a6a71b6/">Geet Salame</a> where you will experience seamless and efficient connection and
+                <p style="text-align: center;">This is an instant chat application made by <a style="text-decoration: none; font-weight: bold ;" href="https://www.linkedin.com/in/geet-salame-57a6a71b6/" target="_blank">Geet Salame</a> where you will experience seamless and efficient connection and
                     chat with people quickly. <br>
                     This application is designed to prioritize simplicity and
                     convenience, allowing you to dive right into engaging conversations without any hassle. <br>
