@@ -33,3 +33,23 @@
 #joinbody>div>a:hover {
     color: var(--theme-pri);
 }
+
+
+
+/*--------------- Responsiveness  -------------*/
+@media screen and (max-width : 700px) {
+    #joinbody {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
+    .inp{
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    .inp{
+        width: 80vw;
+    }
+}
