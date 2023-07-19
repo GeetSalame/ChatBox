@@ -8,26 +8,27 @@
 }
 
 #chatdetailsec {
+    display: none;
     width: 20vw;
     background: white;
-    /* border: 2px solid red; */
-    display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40vw;
+    z-index: 200;
 }
 
 #chatdetailsec>h2 {
-    width: 20vw;
+    width: 100%;
     /* border: 2px solid red; */
     display: flex;
     padding: 5px 0px;
     justify-content: center;
     align-items: center;
     box-shadow: 0 10px 10px silver;
-}
-
-#chatdetailsec>h2 {
-    width: 20vw;
-    background: white
+    background: white;
 }
 
 #members {
@@ -41,8 +42,8 @@
 }
 
 #chatinterface {
-    width: 80vw;
-    height: 100vh;
+    width: 100vw;
+    height: 100%;
     background: linear-gradient(45deg, var(--bg1_dark), var(--bg1_light));
 }
 
@@ -51,14 +52,20 @@
     /* justify-content: center; */
     align-items: center;
     box-shadow: 0px 5px 10px rgba(192, 192, 192, 0.642);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--theme-pri);
 }
 
 #msgsec {
-    height: 85%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    padding: 10px 0 10px;
+    padding: 50px 0;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -116,6 +123,7 @@
     margin-left: auto;
     font-size: .6rem;
     opacity: .6;
+    z-index: 1;
 }
 
 .imsgsec>.msg {
@@ -139,6 +147,11 @@
 #typesec {
     display: flex;
     padding: 0 20px;
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 #typesec>textarea {
@@ -161,6 +174,7 @@
 
 #linksec {
     position: fixed;
+    z-index: 300;
     top: 0;
     left: 0;
     width: 100vw;
@@ -173,8 +187,8 @@
 
 #linksec>button {
     position: fixed;
-    top: 10%;
-    right: 10%;
+    top: 40%;
+    right: 20%;
 }
 
 #linksec>div {
@@ -183,4 +197,40 @@
     border: 5px;
     display: flex;
 
+}
+
+
+/*--------------- Responsiveness  -------------*/
+@media screen and (max-width : 900px) {
+    #chatdetailsec>h2, h3 {
+        font-size: 1rem;
+    }
+    .btn>p{
+        font-size: .7rem;
+    }
+    .btn>img{
+        height: 10px;
+        width: 10px;
+    }
+    #typesec>button{
+        width: 15%;
+    }
+}
+
+@media screen and (max-width : 700px) {
+    #chatdetailsec>h2, h3 {
+        font-size: .8rem;
+    }
+    .btn>p{
+        font-size: .7rem;
+    }
+    #typesec>button{
+        width: 20%;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    #typesec{
+        padding: 0 5px;
+    }
 }
