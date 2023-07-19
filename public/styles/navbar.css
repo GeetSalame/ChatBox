@@ -1,0 +1,42 @@
+nav {
+    /* border: 2px solid red; */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    box-shadow: 0 2px 20px var(--bg1_light);
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.515);
+    backdrop-filter: blur(2px);
+}
+
+nav>* {
+    /* border: 2px solid red; */
+}
+
+nav>h1 {
+    /* border: 2px solid red; */
+}
+
+nav>ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav>ul>li {
+    margin: 0px 50px;
+}
+
+nav>ul>li>button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+}
+
+nav>ul>li>button:hover {
+    transform: scale(1.1);
+    color: var(--theme-pri);
+}

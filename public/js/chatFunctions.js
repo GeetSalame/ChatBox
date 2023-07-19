@@ -1,4 +1,5 @@
 function displayMembers(memberObj) {
+    document.getElementById("displayRoomID").innerHTML = `Room ID : <span style="color: var(--theme-pri);">${roomId}</span>`;
     let markup = '';
     memberObj.map(member => {
         markup = markup.concat(`<li>${member}</li>`);
@@ -26,7 +27,7 @@ function refreshMemberList() {
 
 typemsg.addEventListener('keyup', (e) => {
     if (typemsg.value === '\n' || typemsg.value === '') {
-        alert("You have not entered any message")
+        console.log("You have not entered any message");
         typemsg.value = '';
     }
     else {

@@ -8,6 +8,7 @@
     <link rel="icon" href="https://cdn.icon-icons.com/icons2/1154/PNG/512/1486564410-chat_81504.png"
         type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/chatpage.css">
 </head>
 
 <body>
@@ -16,7 +17,8 @@
             <h2 class="brandName">Chat<span>Box</span></h2>
             <!-- <h2>GroupName <button class="btn" style="border: none;" onclick="editGrpName()"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/1827/1827951.png" alt="edit"></button></h2> -->
             <div id="members">
-                <h3>Members &nbsp;<button class="btn" style="border: none;" onclick="refreshMemberList()"><img
+                <h3 id="displayRoomID">Room ID : </h3>
+                <h3 style="display: flex; margin-top: 15px;">Members &nbsp;<button class="btn" style="border: none; padding: 0; transform: scale(0.7);" onclick="refreshMemberList()"><img
                             class="icon" src="https://cdn-icons-png.flaticon.com/512/126/126502.png"
                             alt="edit"></button></h3>
                 <ul id="memberlist">
@@ -25,7 +27,7 @@
                     <li>name 3</li> -->
                 </ul>
             </div>
-            <button class="btn" style="margin: auto auto 0; display: flex; align-items: center;"
+            <button class="btn" style="margin: auto auto 20px; display: flex; align-items: center;"
                 onclick="location.href='/'">
                 <p>Leave Room</p> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/320/320140.png" alt="">
             </button>
@@ -38,7 +40,7 @@
                     <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1358/1358023.png" alt="share">
                 </button>
             </div>
-            <div id="msgsec">
+            <div id="msgsec" class="msgsec">
                 <!-- <div class="entry">
                     <p>Geet joined</p>
                 </div> -->
