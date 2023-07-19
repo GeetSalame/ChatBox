@@ -44,3 +44,17 @@
     color: var(--theme-pri);
     text-decoration: none;
 }
+
+
+/*--------------- Responsiveness  -------------*/
+@media screen and (max-width : 600px) {
+    .footer h2 {
+        font-size: 1.1rem;
+    }
+    .footer img {
+        height: 15px;
+    }
+    .footer a {
+        font-size: .7rem;
+    }
+}

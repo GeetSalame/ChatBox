@@ -24,10 +24,33 @@
     width: 50%;
 }
 
-#aboutbody>:nth-child(1) {
-    /* border: 2px solid red; */
+
+
+/*--------------- Responsiveness  -------------*/
+@media screen and (max-width : 700px) {
+    #aboutbody>* {
+        width: 60%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #aboutbody>div>p {
+        font-size: 0.9rem;
+    }
 }
 
-#aboutcontainer>* {
-    /* border: 2px solid red; */
+@media screen and (max-width : 450px) {
+    #aboutbody>* {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    #aboutbody>div>p {
+        font-size: 0.7rem;
+    }
 }
