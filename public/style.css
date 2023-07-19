@@ -35,8 +35,8 @@ body {
 }
 
 h1 {
-    height: 5vh;
     text-align: center;
+    margin: auto 0;
 }
 
 .btn {

@@ -15,6 +15,7 @@
 <body>
     <div id="joincontainer">
         <nav>
+            <!-- <h1 id="brandName"><span>Chat</span>Box</h1> -->
             <h1 class="brandName">Chat<span>Box</span></h1>
             <ul>
                 <li><button onclick="location.href='/'">Home</button></li>
@@ -22,7 +23,23 @@
                 <li><button onclick="location.href='/about'">About</button></li>
             </ul>
             <button class="btn" onclick="location.href='/about#footersec'">Let's Connect</button>
+            <button id="menuBtn" class="btn" onclick="{document.getElementById('sidenav').style.display = 'flex';}"
+                style="border: none;">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="menu">
+            </button>
         </nav>
+        <div id="sidenav">
+            <button class="btn" onclick="{document.getElementById('sidenav').style.display = 'none';}"
+                style="border: none;">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" style="transform: rotate(180deg);" alt="menu">
+            </button>
+            <ul>
+                <li><button onclick="location.href='/'">Home</button></li>
+                <li><button onclick="location.href='/join'">Chat</button></li>
+                <li><button onclick="location.href='/about'">About</button></li>
+            </ul>
+            <button class="btn" onclick="location.href='/about#footersec'">Let's Connect</button>
+        </div>
         <div id="joinbody">
             <h2>Join Room</h2>
             <div>
