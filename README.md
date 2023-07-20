@@ -13,9 +13,12 @@ Start chatting now and embark on a journey of connection and exploration!
 
 
 ## Demo
-![Home Page](https://raw.githubusercontent.com/GeetSalame/ChatBox/main/public/img/Doc/homepage.png)
+![Home Page](./public/img/Doc/homepage.png)
+![Create/Join Page](./public/img/Doc/createpage.png)
+![Chat Page](./public/img/Doc/chatpage.png)
+<!-- ![Home Page](https://raw.githubusercontent.com/GeetSalame/ChatBox/main/public/img/Doc/homepage.png)
 ![Create/Join Page](https://raw.githubusercontent.com/GeetSalame/ChatBox/main/public/img/Doc/createpage.png)
-![Chat Page](https://raw.githubusercontent.com/GeetSalame/ChatBox/main/public/img/Doc/chatpage.png)
+![Chat Page](https://raw.githubusercontent.com/GeetSalame/ChatBox/main/public/img/Doc/chatpage.png) -->
 
 
 ## Author
